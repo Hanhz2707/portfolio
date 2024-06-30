@@ -38,13 +38,12 @@ const Navbar = () => {
                             className='app__navbar-menu--mobile'
                         >
                             <HiX onClick={() => setToggle(false)} size={30} color='white'/>
-                            <ul>
-                                {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-                                    <li key={`${item}`}>
-                                        <a href={`#${item}`}>{item}</a>
-                                    </li>
-                                ))}
-                            </ul>
+                            {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+                                <li key={item}>
+                                     {/* Using anchor tag to navigate to the respective section and close the menu => setToggle(false) */}
+                                    <a onClick={() => setToggle(false)} href={`#${item}`}>{item}</a>
+                                </li>
+                            ))}
                         </motion.div>
                     )
                 }
