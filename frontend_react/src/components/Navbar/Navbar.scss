@@ -1,0 +1,81 @@
+.app__navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    z-index: 2;
+
+    backdrop-filter: blur(4px); //blur background
+
+    -webkit-backdrop-filter: blur(4px); //Not all browsers support backdrop-filter;
+
+}
+
+.app__navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    //Using SCSS so instead of .app__navbar__logo img, we can use img as a nested selector
+    img {
+        width: 90px;
+        height: 20px;
+    }
+    
+        //For extra wide devices
+        @media screen and (min-width: 2000px) {
+            width: 180px;
+            height: 40px;
+        }
+}
+
+.app__navbar-links {
+    flex: 1; //take out spaces that logo doesnt take
+    display: flex; // make content in a row
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+
+    li{
+        margin: 0 1rem;
+        cursor: pointer;
+        flex-direction: column;
+
+
+        div{
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+
+        a{
+            color: var (--gray-color);
+            text-decoration: none;
+            flex-direction: column;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: var(--secondary-color);
+            }
+
+        }
+
+
+        &:hover {
+            div{
+                background: var(--secondary-color);
+            }
+        }
+    }
+
+
+}
