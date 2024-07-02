@@ -2,47 +2,56 @@ import React, {useState, useEffect} from 'react';
 import './About.scss';
 
 import {motion} from 'framer-motion';
+import {images} from '../../constants';
+import { urlFor, client } from '../../client';
 
-const abouts = [
-  {
-    title: 'Web Development',
-    description: 'I have experience building websites and chrome extensions using JavaScript, React, HTML, CSS, and Node.js.',
-    images: ''
-  },
+// const abouts = [
+//   {
+//     title: 'Web Development',
+//     description: 'I have experience building websites and chrome extensions using JavaScript, React, HTML, CSS, and Node.js.',
+//     images: images.about01
+//   },
 
-  {
-    title: 'Web Design',
-    description: 'I am web design.',
-    images: ''
-  },
+//   {
+//     title: 'Web Design',
+//     description: 'I am web design.',
+//     images: images.about02
+//   },
 
-  {
-    title: 'UI/UX Design',
-    description: 'I am ui/ux design.',
-    images: ''
-  },
+//   {
+//     title: 'UI/UX Design',
+//     description: 'I am ui/ux design.',
+//     images: images.about03
+//   },
 
-  {
-    title: 'Web Animations',
-    description: 'I ham web animations.',
-    images: ''
-  },
+//   {
+//     title: 'Web Animations',
+//     description: 'I ham web animations.',
+//     images: images.about04
+//   },
 
-];
+// ];
 
 
 const About = () => {
+
+  const [abouts, setAbout] = useState([]);
+
+  //fetching data from backend
+  //npm run build for sanity in backend to buil 'dist' folder || sanity start to start server
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+    client.fetch(query)
+      .then((data) => setAbout(data))
+  }, []);
+
+  useState(() => {}, []);
+
   return (
     <>
-      <h2 className='head-text'>
-        I know that
-        <span>Good design</span>
-        <br />
-        means
-        <span>Good business</span>
-      </h2>
+      <h2 className='head-text'>I know that <span>Good Dev</span><br />means <span>Good business</span></h2>
 
-      <div className='app__profies'>
+      <div className='app__profiles'>
         {abouts.map((about, index) => (
           <motion.div
             whileInView={{opacity: 1}}
