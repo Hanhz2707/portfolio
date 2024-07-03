@@ -60,8 +60,10 @@ const About = () => {
             whileHover={{scale: 1.1}}
             transition={{duration: 0.5, type: 'tween'}}
           >
-            <img src={about.images} alt={about.title} />
+            {/* checking schemaTypes/about.js for the imageurl 'name' */}
+            <img src={urlFor(about.imageurl)} alt={about.title} />
             <h2 className='bold=text' style={{marginTop: 20}}>{about.title}</h2>
+            <p className='p-text' style={{marginTop: 10}}>{about.description}</p>
           </motion.div>
         ))}
       </div>
