@@ -30,6 +30,9 @@ const Work = () => {
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
+
+    //Make the card reanimated when onClick
+
     setAnimateCard([{y: 1000, opacity: 0}]);
 
     setTimeout(() => {
@@ -37,6 +40,9 @@ const Work = () => {
       if (item === 'ALL') {
         setFilteredWork(works);
       } else {
+
+        //use tag to filter the work
+        
         setFilteredWork(works.filter((work) => work.tags.includes(item)));
       }
       
