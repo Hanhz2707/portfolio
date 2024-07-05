@@ -99,4 +99,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default AppWrap(Skills,'skills');
