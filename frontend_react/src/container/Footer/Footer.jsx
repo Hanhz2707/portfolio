@@ -22,6 +22,19 @@ const Footer = () => {
 
   const handleSubmit = () => {
     setLoading(true);
+
+    const contact = {
+      _type: 'contact',
+      name: name,
+      email: email,
+      message: message
+    };
+
+    client.create(contact)
+      .then(() => {
+        setLoading(false);
+        setIsFormSubmitted(true);
+      })
   };
 
 
@@ -43,24 +56,34 @@ const Footer = () => {
 
       </div>
 
+      {isFormSubmitted ? 
+        <div className='app__footer-form app__flex'>
+          <div className='app__flex'>
+            <input className='p-text' type="text" placeholder='Your Name' value={name} onChange={handleChangeInput} name='name' />
+          </div>
 
-      <div className='app__footer-form app__flex'>
-        <div className='app__flex'>
-          <input className='p-text' type="text" placeholder='Your Name' value={name} onChange={handleChangeInput} name='name' />
+          <div className='app__flex'>
+            <input className='p-text' type="email" placeholder='Your Email' value={email} onChange={handleChangeInput} name='email' />
+          </div>
+
+          <div>
+            <textarea className='p-text' placeholder='Your Message' value={message} onChange={handleChangeInput} name='message'></textarea>
+          </div>
+
+          {/* if is loading then load the is loading text else load the send message text */}
+          <button className='p-text' onClick={handleSubmit} type='button'>{loading ? 'Sending' : 'Send Message'}</button>
         </div>
+    
+        : 
 
-        <div className='app__flex'>
-          <input className='p-text' type="email" placeholder='Your Email' value={email} onChange={handleChangeInput} name='email' />
-        </div>
-
+        
         <div>
-          <textarea className='p-text' placeholder='Your Message' value={message} onChange={handleChangeInput} name='message'></textarea>
+          <h3 className='head-text'>Thank you for getting in touch</h3>
         </div>
+    }
 
-        {/* if is loading then load the is loading text else load the send message text */}
-        <button className='p-text' onClick={handleSubmit} type='button'>{loading ? 'Sending' : 'Send Message'}</button>
 
-      </div>
+
     </>
   );
 };
