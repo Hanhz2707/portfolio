@@ -28,9 +28,13 @@ const Header = () => {
               <h1 className='head-text'>Hanhz</h1>
             </div>
           </div>
+          <div className='tag-cmp app__flex' style={{textTransform:'uppercase'}}>
+            <p className='tag-text'> Frontend Developer</p>
+            <p className='tag-text'> UI/UX Designer</p>
+          </div>
+
           <div className='tag-cmp app__flex'>
-            <p className='tag-text'>Frontend Developer</p>
-            <p className='tag-text'>UI/UX Designer</p>
+            <p className='tag-text'>I'm working for <a href="https://metatavu.fi/" target="_blank">🏢Metatavu</a> as a Software Engineere internship</p>
           </div>
 
         </div>
@@ -55,7 +59,7 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
       >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
+        {[images.redux, images.react, images.typescript, images.javascript, images.git].map((circle, index) => (
           <div className='circle-cmp app__flex' key={`circle-${index}`}>
             <img src={circle} alt="circle" />
           </div>
