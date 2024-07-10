@@ -49,7 +49,7 @@ const About = () => {
 
   return (
     <>
-      <h2 className='head-text'><span>Education</span> and <span>Courses</span></h2>
+      <h2 className='head-text'>Educations And Courses</h2>
 
       <div className='app__profiles'>
         {abouts.map((about, index) => (
